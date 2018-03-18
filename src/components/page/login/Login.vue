@@ -1,18 +1,18 @@
 <template>
     <div class="login-wrap">
-        <div class="ms-title">后台管理系统</div>
+        <div class="ms-title">井盖状态监控管理系统</div>
         <div class="ms-login">
             <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="0px" class="demo-ruleForm">
                 <el-form-item prop="username">
-                    <el-input v-model="ruleForm.username" placeholder="username"></el-input>
+                    <el-input v-model="ruleForm.username" placeholder="用户名"></el-input>
                 </el-form-item>
                 <el-form-item prop="password">
-                    <el-input type="password" placeholder="password" v-model="ruleForm.password" @keyup.enter.native="submitForm('ruleForm')"></el-input>
+                    <el-input type="password" placeholder="密码" v-model="ruleForm.password" @keyup.enter.native="submitForm('ruleForm')"></el-input>
                 </el-form-item>
                 <div class="login-btn">
                     <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
                 </div>
-                <p style="font-size:12px;line-height:30px;color:#999;">Tips : 用户名和密码随便填。</p>
+                <!--<p style="font-size:12px;line-height:30px;color:#999;">Tips : 用户名和密码随便填。</p>-->
             </el-form>
         </div>
     </div>
@@ -23,8 +23,8 @@
         data: function(){
             return {
                 ruleForm: {
-                    username: '',
-                    password: ''
+                    username: 'root',
+                    password: '123456'
                 },
                 rules: {
                     username: [
@@ -41,8 +41,20 @@
                 const self = this;
                 self.$refs[formName].validate((valid) => {
                     if (valid) {
-                        localStorage.setItem('ms_username',self.ruleForm.username);
-                        self.$router.push('/readme');
+                        console.log('formName',this.ruleForm)
+                        const {username,password}=this.ruleForm;
+                        let data={username,password};
+                        this.$ajax({
+                            method:'post',
+                            url:'http://10.103.243.94:8080/login',
+                            data:data
+                        }).then((res)=>{
+                            console.log('test',res)
+                            localStorage.setItem('ms_username',self.ruleForm.username);
+                            localStorage.setItem('token',res.data.token);
+                            localStorage.setItem('msg',res.data.msg);
+                            self.$router.push('/readme');
+                        })
                     } else {
                         console.log('error submit!!');
                         return false;

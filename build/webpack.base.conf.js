@@ -19,6 +19,10 @@ module.exports = {
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },
+   externals: {
+        'AMap': 'AMap',
+        jquery: 'jQuery'
+   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     modules: [

@@ -32,38 +32,96 @@
                     {
                         icon: 'el-icon-menu',
                         index: '2',
-                        title: '表格',
+                        title: '用户管理',
                         subs: [
                             {
-                                index: 'basetable',
-                                title: '基础表格'
+                                index: 'personlist',
+                                title: '用户列表'
                             },
                             {
-                                index: 'vuetable',
-                                title: 'Vue表格组件'
+                                index: 'personalinfo',
+                                title: '个人信息'
+                            },
+
+                            {
+                                index: 'test',
+                                title: 'graphql测试'
+                            }
+                        ]
+                    },
+                    {
+                        icon: 'el-icon-menu',
+                        index: '3',
+                        title: '权限管理',
+                        subs: [
+                            {
+                                index: 'role',
+                                title: '角色管理'
+                            },
+                            {
+                                index: 'permission',
+                                title: '权限管理'
                             }
                         ]
                     },
                     {
                         icon: 'el-icon-date',
-                        index: '3',
-                        title: '表单',
+                        index: '4',
+                        title: '仓库管理',
                         subs: [
                             {
-                                index: 'baseform',
-                                title: '基本表单'
+                                index: 'warehouselist',
+                                title: '仓库列表'
                             },
                             {
-                                index: 'vueeditor',
-                                title: '编辑器'
+                                index: 'newwarehouse',
+                                title: '新增入库'
                             },
                             {
-                                index: 'markdown',
-                                title: 'markdown'
+                                index: 'inWarehousesList',
+                                title: '入库信息列表'
                             },
                             {
-                                index: 'upload',
-                                title: '文件上传'
+                                index: 'outWarehousesList',
+                                title: '出库信息列表'
+                            }
+//                            {
+//                                index: 'markdown',
+//                                title: 'markdown'
+//                            },
+//                            {
+//                                index: 'upload',
+//                                title: '文件上传'
+//                            }
+                        ]
+                    },
+                    {
+                        icon: 'el-icon-menu',
+                        index: '6',
+                        title: '监控管理',
+                        subs: [
+                            {
+                                index: 'lamp',
+                                title: '监控信息'
+                            },
+                            {
+                                index: 'websocket',
+                                title: '监控数据测试'
+                            }
+                        ]
+                    },
+                    {
+                        icon: 'el-icon-menu',
+                        index: '7',
+                        title: '日志管理',
+                        subs: [
+                            {
+                                index: 'loginLog',
+                                title: '用户登录日志'
+                            },
+                            {
+                                index: 'operationLog',
+                                title: '操作日志'
                             }
                         ]
                     },
